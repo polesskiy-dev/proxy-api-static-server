@@ -11,6 +11,8 @@ var proxy = httpProxy.createProxyServer({
     target: process.env.npm_package_config_destination_address
 });
 
+app.use('/api', (req, res, next ) => proxy.web(req, res));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -22,7 +24,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api', (req, res, next ) => proxy.web(req, res));
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
