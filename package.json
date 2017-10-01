@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/pm2 start pm2.process.json",
+    "start": "./node_modules/.bin/pm2 stop all && ./node_modules/.bin/pm2 start pm2.process.json && ./node_modules/.bin/pm2 logs",
     "deploy": "bash ./bin/deploy.sh"
   },
   "config": {
-    "destination_address": "http://46.101.95.245/api"
+    "destination_address": "https://securedev.ripple.foundation/api"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
