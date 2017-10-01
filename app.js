@@ -17,7 +17,8 @@ var proxy = httpProxy.createServer({
   secure: false,
 });
 
-app.use('/api', (req, res, next) => proxy.web(req, res));
+app.use('/api', (req, res, next) => proxy.web(req, res, { target: process.env.npm_package_config_destination_address + '/api'}));
+app.use('/co', (req, res, next) => proxy.web(req, res, { target: process.env.npm_package_config_auth_address + '/co'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -7,7 +7,8 @@
     "deploy": "bash ./bin/deploy.sh"
   },
   "config": {
-    "destination_address": "https://securedev.ripple.foundation/api"
+    "destination_address": "https://securedev.ripple.foundation",
+    "auth_address": "https://rippleosi.eu.auth0.com"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
